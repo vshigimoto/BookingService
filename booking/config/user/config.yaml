@@ -1,0 +1,16 @@
+HttpServer:
+  Port: 9235
+
+Database:
+  Main:
+    Host: 'localhost'
+    SslMode: 'disable'
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'postgres'
+  Replica:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'postgres'

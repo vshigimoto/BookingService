@@ -1,0 +1,26 @@
+HttpServer:
+  Port: 9233
+
+Database:
+  Main:
+    Host: 'localhost'
+    SslMode: 'disable'
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'postgres'
+  Replica:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'postgres'
+
+Auth:
+  JwtSecretKey: "AllYourBase"
+  PasswordSecretKey: "dsadjflshfjghfdjkggfdj21321"
+
+
+Transport:
+  User:
+    Host: http://127.0.0.1:9235/
+    Timeout: 100s

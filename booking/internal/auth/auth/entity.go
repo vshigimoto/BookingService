@@ -11,8 +11,9 @@ type JwtUserToken struct {
 }
 
 type JwtTokenContent struct {
-	UserId int
-	Name   string
+	UserId   int
+	Name     string
+	UserRole string
 }
 
 type RegisterRequest struct {

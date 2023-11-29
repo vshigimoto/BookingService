@@ -3,17 +3,19 @@ HttpServer:
 
 Database:
   Main:
-    Host: 'localhost'
+    Host: '127.0.0.1'
     SslMode: 'disable'
+    Port: 5434
     User: 'postgres'
     Password: 'postgres'
-    DbName: 'postgres'
+    DbName: 'auth'
   Replica:
     Host: '127.0.0.1'
     SslMode: 'disable'
+    Port: 5434
     User: 'postgres'
     Password: 'postgres'
-    DbName: 'postgres'
+    DbName: 'auth'
 
 Auth:
   JwtSecretKey: "AllYourBase"

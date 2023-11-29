@@ -25,6 +25,7 @@ func (h *EndpointHandler) Login() gin.HandlerFunc {
 
 		err := ctx.ShouldBindJSON(&request)
 		if err != nil {
+			// log it
 			ctx.JSON(http.StatusBadRequest, gin.H{"message": "bad json"})
 			return
 		}

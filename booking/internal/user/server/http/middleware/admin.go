@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func JWTVerify() gin.HandlerFunc {
+func AdminVerify() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		var tokenString string
 		tokenHeader := ctx.Request.Header.Get("Authorization")
@@ -36,12 +36,15 @@ func JWTVerify() gin.HandlerFunc {
 			ctx.AbortWithStatus(http.StatusUnauthorized)
 			return
 		}
-		userID, ok := claims["user_id"]
+		userRole, ok := claims["user_role"]
 		if !ok {
 			log.Printf("user id could not be parsed from JWT")
 			return
 		}
-		ctx.Set("user_id", userID)
+		if userRole != "admin" {
+			ctx.AbortWithStatus(http.StatusForbidden)
+		}
+		ctx.Set("user_role", userRole)
 		ctx.Next()
 	}
 }

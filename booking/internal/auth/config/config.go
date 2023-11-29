@@ -20,7 +20,7 @@ type DbNone struct {
 	User     string `yaml:"User"`
 	Password string `yaml:"Password"`
 	DbName   string `yaml:"DbName"`
-	SslMode  string `yaml:"SslMode"`
+	Port     int    `yaml:"Port"`
 }
 
 type HttpServer struct {

@@ -38,20 +38,20 @@ func (s *Service) GenerateToken(ctx context.Context, request GenerateTokenReques
 		return nil, fmt.Errorf("password is wrong")
 	}
 	type MyCustomClaims struct {
-		UserId string `json:"user_id"`
+		UserId   string `json:"user_id"`
+		UserRole string `json:"user_role"`
 		jwt.RegisteredClaims
 	}
-
+	userRole, err := s.repo.GetUserRole(user.Id)
+	if err != nil {
+		return nil, err
+	}
 	claims := MyCustomClaims{
 		strconv.Itoa(user.Id),
+		userRole,
 		jwt.RegisteredClaims{
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(15 * time.Minute)),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(40 * time.Minute)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
-			NotBefore: jwt.NewNumericDate(time.Now()),
-			Issuer:    "test",
-			Subject:   "somebody",
-			ID:        "1",
-			Audience:  []string{"somebody_else"},
 		},
 	}
 	secretKey := []byte(s.jwtSecretKey)
@@ -63,15 +63,10 @@ func (s *Service) GenerateToken(ctx context.Context, request GenerateTokenReques
 
 	rClaims := MyCustomClaims{
 		strconv.Itoa(user.Id),
+		userRole,
 		jwt.RegisteredClaims{
-			// A usual scenario is to set the expiration time relative to the current time
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(40 * time.Minute)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
-			NotBefore: jwt.NewNumericDate(time.Now()),
-			Issuer:    "test",
-			Subject:   "somebody",
-			ID:        "1",
-			Audience:  []string{"somebody_else"},
 		},
 	}
 

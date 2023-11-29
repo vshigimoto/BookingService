@@ -8,11 +8,27 @@ import (
 	"net/http"
 )
 
+func (r *Repo) isExist(login, email string) bool {
+	rows, err := r.replica.Query("SELECT * FROM users WHERE login=$1 OR email=$2", login, email)
+	if err != nil {
+		return true
+	}
+	ok := rows.Next()
+	if ok {
+		return true
+	}
+	return false
+}
+
 // CreateUser Create function add new user to DB
 func (r *Repo) CreateUser() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		var user entity.User
 		err := ctx.ShouldBindJSON(&user)
+		if exist := r.isExist(user.Login, user.Email); exist != false {
+			ctx.JSON(http.StatusBadRequest, gin.H{"message": "user exist"})
+			return
+		}
 		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 		if err != nil {
 			return

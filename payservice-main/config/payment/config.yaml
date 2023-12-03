@@ -1,0 +1,18 @@
+Auth:
+  JwtSecretKey: "gabdyq"
+  PasswordSecretKey: "#Gzh87710375053"
+Redis:
+  Address: 'localhost:6543'
+Database:
+  Main:
+    Host:     'localhost'
+    Port:     '5432'
+    User:     'postgres'
+    Password: '12345'
+    DBName:   'payservice'
+  Replica:
+    Host:     'localhost'
+    Port:     '5432'
+    User:     'postgres'
+    Password: '12345'
+    DBName:   'payservice'

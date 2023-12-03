@@ -1,32 +1,33 @@
 CREATE TABLE IF NOT EXISTS "hotel"
 (
-    "id"             serial PRIMARY KEY,
+    "id"              serial PRIMARY KEY,
+    "name"            VARCHAR(255)        NOT NULL,
     "phone"           VARCHAR(50)         NOT NULL,
     "address"         VARCHAR(255)        NOT NULL,
     "category"        VARCHAR(255)        NOT NULL,
     "rating"          float(25)           NOT NULL
 );
 
-insert into hotel (id, phone, address, category, rating) values (1, '753-754-7192', '08 Novick Place', 'comfort+', 3.1);
-insert into hotel (id, phone, address, category, rating) values (2, '284-935-4557', '8479 Del Sol Court', 'comfort', 1.6);
-insert into hotel (id, phone, address, category, rating) values (3, '956-186-1051', '682 Novick Street', 'comfort+', 1.5);
-insert into hotel (id, phone, address, category, rating) values (4, '200-163-5377', '3316 Southridge Circle', 'comfort', 3.1);
-insert into hotel (id, phone, address, category, rating) values (5, '159-682-3895', '44009 Prairieview Circle', 'business', 1.5);
-insert into hotel (id, phone, address, category, rating) values (6, '794-486-3415', '73 Charing Cross Place', 'business', 2.5);
-insert into hotel (id, phone, address, category, rating) values (7, '658-990-7948', '7 Eggendart Alley', 'comfort+', 2.5);
-insert into hotel (id, phone, address, category, rating) values (8, '960-363-0836', '69001 Blaine Drive', 'econom', 1.5);
-insert into hotel (id, phone, address, category, rating) values (9, '770-421-6826', '1470 Jay Parkway', 'comfort+', 3.5);
-insert into hotel (id, phone, address, category, rating) values (10, '875-982-6733', '614 Upham Drive', 'comfort+', 2.7);
-insert into hotel (id, phone, address, category, rating) values (11, '492-461-7671', '1417 Kingsford Pass', 'business', 1.5);
-insert into hotel (id, phone, address, category, rating) values (12, '798-174-7196', '481 Nelson Junction', 'comfort+', 3.5);
-insert into hotel (id, phone, address, category, rating) values (13, '121-472-9330', '37481 Kropf Avenue', 'business', 4.2);
-insert into hotel (id, phone, address, category, rating) values (14, '214-839-0965', '57 Raven Drive', 'luxury', 2.0);
-insert into hotel (id, phone, address, category, rating) values (15, '772-917-6597', '09 Jackson Hill', 'comfort', 1.6);
-insert into hotel (id, phone, address, category, rating) values (16, '527-245-3755', '3848 Brickson Park Center', 'business', 3.9);
-insert into hotel (id, phone, address, category, rating) values (17, '202-496-6963', '24904 Everett Avenue', 'econom', 4.9);
-insert into hotel (id, phone, address, category, rating) values (18, '827-736-8574', '6862 Pawling Plaza', 'comfort', 1.6);
-insert into hotel (id, phone, address, category, rating) values (19, '834-562-0795', '55643 Bay Trail', 'business', 4.0);
-insert into hotel (id, phone, address, category, rating) values (20, '237-332-5896', '3 Hoard Hill', 'comfort+', 4.0);
+insert into hotel (name, phone, address, category, rating) values ('Renner Inc', '+33 923 653 4484', '17 Victoria Way', 'comfort', 2.5);
+insert into hotel (name, phone, address, category, rating) values ('Stehr Inc', '+33 588 406 2595', '3842 Gateway Junction', 'econom', 3.0);
+insert into hotel (name, phone, address, category, rating) values ('Murphy LLC', '+63 750 673 4561', '83441 Northland Point', 'business', 2.9);
+insert into hotel (name, phone, address, category, rating) values ('Zulauf Inc', '+86 389 584 0693', '5 Oxford Crossing', 'comfort+', 2.8);
+insert into hotel (name, phone, address, category, rating) values ('Gutmann, Kub and Bosco', '+63 771 195 0517', '3110 Golden Leaf Park', 'luxury', 2.2);
+insert into hotel (name, phone, address, category, rating) values ('Lindgren-Johns', '+86 561 609 8714', '54 Summit Junction', 'business', 2.9);
+insert into hotel (name, phone, address, category, rating) values ('Effertz-Turcotte', '+420 645 964 0750', '1282 Maple Street', 'comfort+', 1.5);
+insert into hotel (name, phone, address, category, rating) values ('Erdman and Sons', '+54 803 478 2629', '6402 Del Sol Crossing', 'comfort', 1.1);
+insert into hotel (name, phone, address, category, rating) values ('Stamm Group', '+351 407 607 4084', '5796 Pepper Wood Road', 'econom', 3.3);
+insert into hotel (name, phone, address, category, rating) values ('Barton, Corwin and Smith', '+504 993 827 0378', '757 Delaware Crossing', 'comfort', 3.7);
+insert into hotel (name, phone, address, category, rating) values ('Daugherty, Yost and Wolf', '+30 672 763 3690', '65 Kedzie Center', 'business', 1.5);
+insert into hotel (name, phone, address, category, rating) values ('Bartoletti Group', '+86 164 857 3996', '250 Oak Hill', 'comfort+', 4.7);
+insert into hotel (name, phone, address, category, rating) values ('Spinka-Leuschke', '+591 721 188 4508', '4092 Golf View Park', 'econom', 2.4);
+insert into hotel (name, phone, address, category, rating) values ('Ankunding, Friesen and Dicki', '+33 688 837 2972', '8 Lillian Plaza', 'luxury', 1.8);
+insert into hotel (name, phone, address, category, rating) values ('Hammes, O''Connell and Weber', '+86 148 763 5981', '64 Holmberg Road', 'luxury', 3.4);
+insert into hotel (name, phone, address, category, rating) values ('Mayer-Heller', '+385 923 561 0053', '8415 Golf Course Alley', 'econom', 3.3);
+insert into hotel (name, phone, address, category, rating) values ('Kuhlman, Runolfsson and O''Keefe', '+55 529 969 4390', '8 Bobwhite Junction', 'business', 2.8);
+insert into hotel (name, phone, address, category, rating) values ('Kling, Reichert and Hartmann', '+389 810 893 8097', '4 Hovde Place', 'business', 1.4);
+insert into hotel (name, phone, address, category, rating) values ('Will-Toy', '+380 855 103 5832', '748 Mitchell Lane', 'comfort+', 2.2);
+insert into hotel (name, phone, address, category, rating) values ('Schultz-Skiles', '+86 908 140 1601', '73510 Nancy Lane', 'econom', 3.4);
 
 
 CREATE TABLE IF NOT EXISTS "bookcalendar"

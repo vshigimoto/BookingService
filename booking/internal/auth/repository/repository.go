@@ -8,6 +8,7 @@ import (
 type UserTokenRepository interface {
 	CreateUserToken(userToken entity.UserToken) error
 	UpdateUserToken(userToken entity.UserToken) error
+	GetUserRole(userId int) (string, error)
 }
 
 type Repository interface {

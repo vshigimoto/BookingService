@@ -39,6 +39,7 @@ func JWTVerify() gin.HandlerFunc {
 		userID, ok := claims["user_id"]
 		if !ok {
 			log.Printf("user id could not be parsed from JWT")
+			return
 		}
 		ctx.Set("user_id", userID)
 		ctx.Next()

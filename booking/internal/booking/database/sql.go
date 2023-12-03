@@ -7,12 +7,12 @@ import (
 )
 
 func (c Config) dsn() string {
-	return fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=%s",
+	return fmt.Sprintf("host=%s port=%d dbname=%s user=%s password=%s sslmode=disable",
 		c.Host,
+		c.Port,
+		c.DbName,
 		c.User,
 		c.Password,
-		c.DbName,
-		c.SslMode,
 	)
 }
 

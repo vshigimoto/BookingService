@@ -5,6 +5,7 @@ import (
 	"booking/internal/booking/database"
 	"booking/internal/booking/repository"
 	"booking/internal/booking/server/http"
+	"booking/internal/booking/usecase"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -35,8 +36,17 @@ func (a *Applicator) Run() {
 		l.Panicf("Error to connect DB '%s':%v", cfg.Database.Replica.Host, err)
 	}
 	rep := repository.NewRepository(mainDB, replicaDB)
-	http.InitRouter(r, rep)
+	bookingUC := usecase.NewBookingUC(l, rep)
+	http.InitRouter(r, *bookingUC, l, cfg)
 	port := fmt.Sprintf(":%d", cfg.HttpServer.Port)
+	go func() {
+		ar := gin.Default()
+		adminPort := fmt.Sprintf(":%d", cfg.HttpServer.AdminPort)
+		http.InitAdminRouter(ar, *bookingUC, l, cfg)
+		if err := ar.Run(adminPort); err != nil {
+			l.Panicf("cannot start admin server with error %v", err)
+		}
+	}()
 	err = r.Run(port)
 	if err != nil {
 		l.Panicf("Error to run server %v", err)

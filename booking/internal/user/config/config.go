@@ -11,7 +11,8 @@ type Database struct {
 }
 
 type HttpServer struct {
-	Port int `yaml:"Port"`
+	Port      int `yaml:"Port"`
+	AdminPort int `yaml:"AdminPort"`
 }
 
 type DbNone struct {
@@ -19,5 +20,5 @@ type DbNone struct {
 	User     string `yaml:"User"`
 	Password string `yaml:"Password"`
 	DbName   string `yaml:"DbName"`
-	SslMode  string `yaml:"SslMode"`
+	Port     int    `yaml:"Port"`
 }

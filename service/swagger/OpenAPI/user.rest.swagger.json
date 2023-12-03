@@ -1,0 +1,100 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "User-service API.",
+    "version": "0.0.1"
+  },
+  "basePath": "/api/user",
+  "paths": {
+    "/v1/user/{login}": {
+      "get": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "operationId": "GetUser",
+        "parameters": [
+          {
+            "name": "login",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserResponse",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserResponse": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "x-go-name": "FirstName",
+          "example": "mytest2"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Id",
+          "example": 1
+        },
+        "is_confirmed": {
+          "type": "boolean",
+          "x-go-name": "IsConfirmed",
+          "example": true
+        },
+        "last_name": {
+          "type": "string",
+          "x-go-name": "LastName",
+          "example": "mytest3"
+        },
+        "login": {
+          "type": "string",
+          "x-go-name": "Login",
+          "example": "mytest"
+        },
+        "password": {
+          "type": "string",
+          "x-go-name": "Password",
+          "example": "mytest4"
+        }
+      },
+      "x-go-package": "service/internal/user/controller/http"
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

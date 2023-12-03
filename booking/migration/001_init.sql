@@ -7,9 +7,3 @@ CREATE TABLE IF NOT EXISTS "users"
     "password"       VARCHAR(255)        NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS "user_token"
-(
-    "user_id"                serial PRIMARY KEY,
-    "token"                  VARCHAR(255)        NOT NULL,
-    "refresh_token"          VARCHAR(255)        NOT NULL
-);

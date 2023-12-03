@@ -17,3 +17,12 @@ Database:
     User: 'postgres'
     Password: 'postgres'
     DbName: 'user'
+
+Kafka:
+  Brokers:
+    - 127.0.0.1:19092
+  Producer:
+    topic: "user-verification"
+  Consumer:
+    topics:
+      - "user-verification"

@@ -2,22 +2,29 @@ package usecase
 
 import (
 	"booking/internal/user/entity"
+	"booking/internal/user/kafka"
 	"booking/internal/user/repository"
+	"booking/internal/user/server/consumer/dto"
 	"context"
+	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+	"math/rand"
 	"net/http"
 )
 
 type UserUC struct {
 	l *zap.SugaredLogger
 	r *repository.Repo
+	k *kafka.Producer
 }
 
-func NewUserUC(l *zap.SugaredLogger, r *repository.Repo) *UserUC {
+func NewUserUC(l *zap.SugaredLogger, r *repository.Repo, k *kafka.Producer) *UserUC {
 	return &UserUC{
 		l: l,
 		r: r,
+		k: k,
 	}
 }
 
@@ -29,12 +36,23 @@ func (u *UserUC) CreateUser() gin.HandlerFunc {
 			ctx.JSON(http.StatusBadRequest, gin.H{"message": "bad request"})
 			return
 		}
+		randNum := rand.Intn(10000)
+		msg := dto.UserCode{Code: fmt.Sprintf("%d", randNum)}
+
 		id, err := u.r.CreateUser(context.TODO(), &user)
 		if err != nil {
 			u.l.Warnf("cannot create user with err:%v", err)
 			ctx.JSON(http.StatusBadRequest, gin.H{"message": "cannot create user"})
 			return
 		}
+
+		b, err := json.Marshal(&msg)
+		if err != nil {
+			u.l.Errorf("Failed to marshal UserCode: %s", err)
+			return
+		}
+		u.k.ProduceMessage(b)
+
 		ctx.JSON(http.StatusOK, id)
 	}
 }

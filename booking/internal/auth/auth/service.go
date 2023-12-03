@@ -50,7 +50,7 @@ func (s *Service) GenerateToken(ctx context.Context, request GenerateTokenReques
 		strconv.Itoa(user.Id),
 		userRole,
 		jwt.RegisteredClaims{
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(40 * time.Minute)),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(15 * time.Minute)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 		},
 	}

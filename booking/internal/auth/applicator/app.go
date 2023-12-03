@@ -41,10 +41,9 @@ func (a *Applicator) Run() {
 	if err != nil {
 		l.Panicf("failed NewProducer err: %v", err)
 	}
-
 	authService := auth.NewAuthService(rep, cfg, userTransport)
 	endpointHandler := http.NewEndpointHandler(*authService)
-	http.InitRouter(rep, r, endpointHandler)
+	http.InitRouter(r, endpointHandler)
 	port := fmt.Sprintf(":%d", cfg.HttpServer.Port)
 	if err := r.Run(port); err != nil {
 		l.Panicf("Error to run server %v", err)

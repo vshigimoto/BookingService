@@ -2,7 +2,7 @@ version: '3'
 services:
   userDB:
     image: postgres:latest
-    container_name: bookingDB
+    container_name: userDB
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - userDB:/userDB
   hotelDB:
     image: postgres:latest
     container_name: hotelDB
@@ -21,7 +21,7 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - hotelDB:/hotelDB
   authDB:
     image: postgres:latest
     container_name: authDB
@@ -32,4 +32,30 @@ services:
     ports:
       - "5434:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - authDB:/authDB
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    restart: always
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - ./pkg/prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+
+volumes:
+  prometheus_data:
+  userDB:
+  authDB:
+  hotelDB:

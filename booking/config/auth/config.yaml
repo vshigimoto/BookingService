@@ -21,8 +21,7 @@ Auth:
   JwtSecretKey: "AllYourBase"
   PasswordSecretKey: "dsadjflshfjghfdjkggfdj21321"
 
-
 Transport:
   User:
-    Host: http://127.0.0.1:9235/
+    Host: http://127.0.0.1:9236/
     Timeout: 100s

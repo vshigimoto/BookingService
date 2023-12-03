@@ -52,3 +52,9 @@ func (h *EndpointHandler) Login() gin.HandlerFunc {
 		ctx.JSON(http.StatusCreated, response)
 	}
 }
+
+func (h *EndpointHandler) Confirm() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+
+	}
+}

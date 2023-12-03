@@ -1,0 +1,107 @@
+basePath: /v1
+definitions:
+  http.User:
+    properties:
+      firstName:
+        type: string
+      id:
+        type: integer
+      isConfirmed:
+        type: boolean
+      lastName:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: User service API in Go using Gin Framework
+  title: User Service API
+  version: "1.0"
+paths:
+  /user:
+    post:
+      description: Create user in service, for admin
+      parameters:
+      - description: CreateUser
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/http.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Create user in service
+  /user/:id:
+    delete:
+      description: Create user in service, for admin
+      parameters:
+      - description: DeleteUser
+        in: body
+        name: request
+        required: true
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete user
+    get:
+      description: Getinformation about user in system
+      parameters:
+      - description: GetUser
+        in: body
+        name: request
+        required: true
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get user by id in service
+    put:
+      description: Gets id param and update user in service, for admin
+      parameters:
+      - description: CreateUser
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/http.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Update user in service
+  /user/login/:login:
+    get:
+      description: Get user by login in system for auth system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get user by login in service
+  /users:
+    get:
+      description: Get information about all users in system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get All users in service
+swagger: "2.0"

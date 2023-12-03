@@ -1,0 +1,24 @@
+info:
+  contact: {}
+paths:
+  /tags:
+    post:
+      description: Save tags data in Db.
+      parameters:
+      - description: Create tags
+        in: body
+        name: tags
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Create tags
+      tags:
+      - tags
+swagger: "2.0"

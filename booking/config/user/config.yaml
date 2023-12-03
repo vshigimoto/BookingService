@@ -1,5 +1,6 @@
 HttpServer:
-  Port: 9235
+  Port: 9236
+  AdminPort: 9237
 
 Database:
   Main:

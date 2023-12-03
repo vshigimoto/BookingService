@@ -1,13 +1,14 @@
 package config
 
-import "time"
+import (
+	"time"
+)
 
 type Config struct {
 	Database   Database   `yaml:"Database"`
 	HttpServer HttpServer `yaml:"HttpServer"`
 	Transport  Transport  `yaml:"Transport"`
 	Auth       Auth       `yaml:"Auth"`
-	Kafka      Kafka      `yaml:"Kafka"`
 }
 
 type Database struct {
@@ -44,18 +45,4 @@ type UserGrpc struct {
 type Auth struct {
 	PasswordSecretKey string `yaml:"passwordSecretKey"`
 	JwtSecretKey      string `yaml:"jwtSecretKey"`
-}
-
-type Kafka struct {
-	Brokers  []string `yaml:"brokers"`
-	Producer Producer `yaml:"producer"`
-	Consumer Consumer `yaml:"consumer"`
-}
-
-type Producer struct {
-	Topic string `yaml:"topic"`
-}
-
-type Consumer struct {
-	Topics []string `yaml:"topics"`
 }

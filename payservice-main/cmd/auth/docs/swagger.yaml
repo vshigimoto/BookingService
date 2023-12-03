@@ -1,0 +1,9 @@
+basePath: /auth
+host: localhost:8081
+info:
+  contact: {}
+  description: Auth service API in Go using Gin Framework
+  title: Auth Service API
+  version: "1.0"
+paths: {}
+swagger: "2.0"

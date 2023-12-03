@@ -11,7 +11,7 @@ func main() {
 	logger, _ := zap.NewProduction()
 	defer logger.Sync()
 	l := logger.Sugar()
-	l = l.With(zap.String("app", "auth-service"))
+	l = l.With(zap.String("app", "booking-service"))
 	cfg, err := config.LoadConfig("config/booking")
 	if err != nil {
 		l.Fatalf("Failed to load config: %v", err)

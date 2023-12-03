@@ -1,0 +1,31 @@
+Auth:
+  JwtSecretKey: "gabdyq"
+  PasswordSecretKey: "#Gzh87710375053"
+Redis:
+  Address: 'localhost:6543'
+Database:
+  Main:
+    Host:     'localhost'
+    Port:     '5432'
+    User:     'postgres'
+    Password: '12345'
+    DBName:   'payservice'
+  Replica:
+    Host:     'localhost'
+    Port:     '5432'
+    User:     'postgres'
+    Password: '12345'
+    DBName:   'payservice'
+
+Transport:
+  UserGrpc:
+    Host: localhost:9090
+
+Kafka:
+  Brokers:
+    - 127.0.0.1:19092
+  Producer:
+    topic: "user-verification"
+  Consumer:
+    topics:
+      - "user-verification"

@@ -1,16 +1,17 @@
 package repository
 
 import (
+	"booking/internal/user/entity"
+	"context"
 	"database/sql"
-	"github.com/gin-gonic/gin"
 )
 
 type UserRepository interface {
-	CreateUser() gin.HandlerFunc
-	GetByLogin() gin.HandlerFunc
-	UpdateUser() gin.HandlerFunc
-	DeleteUser() gin.HandlerFunc
-	GetUsers() gin.HandlerFunc
+	CreateUser(ctx context.Context, user *entity.User) (id int, err error)
+	GetByLogin(ctx context.Context, login string) (*entity.User, error)
+	UpdateUser(ctx context.Context, id int, user *entity.User) error
+	DeleteUser(ctx context.Context, id int) error
+	GetUsers(ctx context.Context) ([]entity.User, error)
 }
 
 type Repository interface {

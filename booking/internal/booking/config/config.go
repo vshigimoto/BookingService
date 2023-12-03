@@ -20,5 +20,6 @@ type DbNone struct {
 }
 
 type HttpServer struct {
-	Port int `yaml:"Port"`
+	Port      int `yaml:"Port"`
+	AdminPort int `yaml:"AdminPort"`
 }

@@ -3,12 +3,15 @@ package applicator
 import (
 	"booking/internal/booking/config"
 	"booking/internal/booking/database"
+	"booking/internal/booking/kafka"
 	"booking/internal/booking/repository"
+	"booking/internal/booking/server/consumer"
 	"booking/internal/booking/server/http"
 	"booking/internal/booking/usecase"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+	"sync"
 )
 
 type Applicator struct {
@@ -36,7 +39,27 @@ func (a *Applicator) Run() {
 		l.Panicf("Error to connect DB '%s':%v", cfg.Database.Replica.Host, err)
 	}
 	rep := repository.NewRepository(mainDB, replicaDB)
-	bookingUC := usecase.NewBookingUC(l, rep)
+	bookingVerificationProducer, err := kafka.NewProducer(cfg.Kafka)
+	if err != nil {
+		l.Panicf("failed NewProducer err: %v", err)
+	}
+	bookingVerificationConsumerCallback := consumer.NewBookingVerificationCallback(l)
+
+	bookingVerificationConsumer, err := kafka.NewConsumer(l, cfg.Kafka, bookingVerificationConsumerCallback)
+	if err != nil {
+		l.Panicf("failed NewConsumer err: %v", err)
+	}
+	var wg sync.WaitGroup
+	var mu sync.RWMutex
+	for i := 0; i < 3; i++ {
+		wg.Add(1)
+		go rep.Worker(&wg, i)
+	}
+	wg.Wait()
+	go repository.Daemon()
+	go rep.Hotels(&mu)
+	go bookingVerificationConsumer.Start()
+	bookingUC := usecase.NewBookingUC(l, rep, bookingVerificationProducer)
 	http.InitRouter(r, *bookingUC, l, cfg)
 	port := fmt.Sprintf(":%d", cfg.HttpServer.Port)
 	go func() {

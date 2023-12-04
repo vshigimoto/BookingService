@@ -3,9 +3,7 @@ package applicator
 import (
 	"booking/internal/user/config"
 	"booking/internal/user/database"
-	"booking/internal/user/kafka"
 	"booking/internal/user/repository"
-	"booking/internal/user/server/consumer"
 	"booking/internal/user/server/http"
 	"booking/internal/user/usecase"
 	"fmt"
@@ -39,27 +37,14 @@ func (a *Applicator) Run() {
 	}
 	rep := repository.NewRepository(mainDB, replicaDB)
 
-	userVerificationProducer, err := kafka.NewProducer(cfg.Kafka)
-	if err != nil {
-		l.Panicf("failed NewProducer err: %v", err)
-	}
-
-	userVerificationConsumerCallback := consumer.NewUserVerificationCallback(l)
-
-	userVerificationConsumer, err := kafka.NewConsumer(l, cfg.Kafka, userVerificationConsumerCallback)
-	if err != nil {
-		l.Panicf("failed NewConsumer err: %v", err)
-	}
-
-	go userVerificationConsumer.Start()
-	userUC := usecase.NewUserUC(l, rep, userVerificationProducer)
+	userUC := usecase.NewUserUC(l, rep)
 	http.UserRouter(r, *userUC, l, cfg)
 	port := fmt.Sprintf(":%d", cfg.HttpServer.Port)
 	go func() {
 		ar := gin.Default()
 		adminPort := fmt.Sprintf(":%d", cfg.HttpServer.AdminPort)
 		l.Infof("Admin server on port %s, running", adminPort)
-		adminUC := usecase.NewUserUC(l, rep, userVerificationProducer)
+		adminUC := usecase.NewUserUC(l, rep)
 		http.AdminRouter(ar, *adminUC, l, cfg)
 		if err := ar.Run(adminPort); err != nil {
 			l.Panicf("Error to run admin server: %v", err)

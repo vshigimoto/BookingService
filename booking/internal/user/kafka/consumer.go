@@ -1,7 +1,7 @@
 package kafka
 
 import (
-	"booking/internal/user/config"
+	"booking/internal/booking/config"
 	"fmt"
 	"github.com/IBM/sarama"
 	"go.uber.org/zap"

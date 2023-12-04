@@ -14,14 +14,11 @@ func (r *Repo) isExist(login, email string) bool {
 		return true
 	}
 	ok := rows.Next()
-	if ok {
-		return true
-	}
-	return false
+	return ok
 }
 
 func (r *Repo) CreateUser(ctx context.Context, user *entity.User) (id int, err error) {
-	if exist := r.isExist(user.Login, user.Email); exist != false {
+	if exist := r.isExist(user.Login, user.Email); exist {
 		return 0, fmt.Errorf("user with login or email %s, %s is exist", user.Login, user.Email)
 	}
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
@@ -45,7 +42,7 @@ func (r *Repo) GetUsers(ctx context.Context, sortKey, sortBy string) ([]entity.U
 	defer func(rows *sql.Rows) {
 		err := rows.Close()
 		if err != nil {
-
+			return
 		}
 	}(rows)
 	for rows.Next() {
@@ -91,11 +88,14 @@ func (r *Repo) DeleteUser(ctx context.Context, login string) error {
 
 func (r *Repo) GetByLogin(ctx context.Context, login string) (*entity.User, error) {
 	rows, err := r.replica.Query("SELECT * FROM users WHERE login=$1", login)
+	if err != nil {
+		return nil, fmt.Errorf("error with query: %v", err)
+	}
 	var user entity.User
 	defer func(rows *sql.Rows) {
 		err := rows.Close()
 		if err != nil {
-
+			return
 		}
 	}(rows)
 	rows.Next()

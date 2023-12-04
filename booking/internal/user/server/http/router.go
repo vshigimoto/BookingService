@@ -25,6 +25,7 @@ func UserRouter(r *gin.Engine, u usecase.UserUC, l *zap.SugaredLogger, cfg confi
 	v1 := r.Group("api/user/v1")
 	{
 		v1.GET("/user/:login", ur.u.GetByLogin())
+		v1.POST("/user", middleware.JWTVerify(), ur.u.CreateUser())
 	}
 
 }
@@ -39,7 +40,6 @@ func AdminRouter(r *gin.Engine, u usecase.UserUC, l *zap.SugaredLogger, cfg conf
 			cfg: cfg,
 		}
 		v1.GET("/user", middleware.AdminVerify(), ur.u.GetUsers())
-		v1.POST("/user", middleware.AdminVerify(), ur.u.CreateUser())
 		v1.PUT("/user/:login", middleware.AdminVerify(), ur.u.UpdateUser())
 		v1.DELETE("/user/:login", middleware.AdminVerify(), ur.u.DeleteUser())
 	}

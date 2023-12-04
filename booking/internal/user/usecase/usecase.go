@@ -36,7 +36,7 @@ func (u *UserUC) CreateUser() gin.HandlerFunc {
 			return
 		}
 
-		ctx.JSON(http.StatusOK, id)
+		ctx.JSON(http.StatusOK, gin.H{"message": "user created", "userId": id})
 	}
 }
 

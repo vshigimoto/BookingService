@@ -19,13 +19,13 @@ type Repository interface {
 }
 
 type Repo struct {
-	main    sql.DB
-	replica sql.DB
+	main    *sql.DB
+	replica *sql.DB
 }
 
 func NewRepository(main *sql.DB, replica *sql.DB) *Repo {
 	return &Repo{
-		main:    *main,
-		replica: *replica,
+		main:    main,
+		replica: replica,
 	}
 }

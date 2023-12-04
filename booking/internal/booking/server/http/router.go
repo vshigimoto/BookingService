@@ -27,6 +27,7 @@ func InitRouter(r *gin.Engine, u usecase.BookingUC, l *zap.SugaredLogger, cfg co
 		v1.GET("/booking/book/:id", middleware.JWTVerify(), br.u.BookRoom())
 		v1.GET("/booking/hotel/:id", middleware.JWTVerify(), br.u.GetHotelById())
 		v1.GET("/booking/hotel", middleware.JWTVerify(), br.u.GetHotels())
+		v1.POST("/booking/hotel/confirm", middleware.JWTVerify(), br.u.ConfirmBook())
 	}
 }
 

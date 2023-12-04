@@ -14,3 +14,9 @@ type BookCalendar struct {
 	HotelId   int `json:"hotel_id"`
 	RoomCount int `json:"room_count"`
 }
+
+type BookRequest struct {
+	Id      int `json:"Id"`
+	HotelId int `json:"hotel_id"`
+	Code    int `json:"Code"`
+}

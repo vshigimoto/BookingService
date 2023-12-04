@@ -56,3 +56,10 @@ insert into bookcalendar (id, hotel_id, room_count) values (17, 17, 446);
 insert into bookcalendar (id, hotel_id, room_count) values (18, 18, 213);
 insert into bookcalendar (id, hotel_id, room_count) values (19, 19, 234);
 insert into bookcalendar (id, hotel_id, room_count) values (20, 20, 74);
+
+CREATE TABLE IF NOT EXISTS "bookrequest"
+(
+    "id"                      serial PRIMARY KEY,
+    "hotel_id"                int   NOT NULL,
+    "code"                    int   NOT NULL
+);

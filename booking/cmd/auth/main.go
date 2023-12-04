@@ -9,7 +9,12 @@ import (
 
 func main() {
 	logger, _ := zap.NewProduction()
-	defer logger.Sync()
+	defer func(logger *zap.Logger) {
+		err := logger.Sync()
+		if err != nil {
+			return
+		}
+	}(logger)
 	l := logger.Sugar()
 	l = l.With(zap.String("app", "auth-service"))
 	cfg, err := config.LoadConfig("config/auth")

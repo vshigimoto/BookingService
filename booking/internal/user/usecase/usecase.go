@@ -35,7 +35,8 @@ func (u *UserUC) CreateUser() gin.HandlerFunc {
 			ctx.JSON(http.StatusBadRequest, gin.H{"message": "cannot create user"})
 			return
 		}
-		ctx.JSON(http.StatusOK, id)
+
+		ctx.JSON(http.StatusOK, gin.H{"message": "user created", "userId": id})
 	}
 }
 

@@ -36,6 +36,7 @@ func (a *Applicator) Run() {
 		l.Fatalf("Error to connect DB '%s':%v", cfg.Database.Replica.Host, err)
 	}
 	rep := repository.NewRepository(mainDB, replicaDB)
+
 	userUC := usecase.NewUserUC(l, rep)
 	http.UserRouter(r, *userUC, l, cfg)
 	port := fmt.Sprintf(":%d", cfg.HttpServer.Port)

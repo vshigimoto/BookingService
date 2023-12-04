@@ -24,7 +24,7 @@ func (r *Repo) GetHotels(ctx context.Context) ([]entity.Hotel, error) {
 	defer func(rows *sql.Rows) {
 		err := rows.Close()
 		if err != nil {
-
+			return
 		}
 	}(rows)
 	for rows.Next() {
@@ -58,11 +58,14 @@ func (r *Repo) DeleteHotel(ctx context.Context, id string) error {
 
 func (r *Repo) GetHotelById(ctx context.Context, id string) (*entity.Hotel, error) {
 	rows, err := r.replica.Query("SELECT * FROM hotel WHERE id=$1", id)
+	if err != nil {
+		return nil, fmt.Errorf("error with query row %v", err)
+	}
 	var hotel entity.Hotel
 	defer func(rows *sql.Rows) {
 		err := rows.Close()
 		if err != nil {
-
+			return
 		}
 	}(rows)
 	rows.Next()

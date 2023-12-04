@@ -37,6 +37,7 @@ func (s *Service) GenerateToken(ctx context.Context, request GenerateTokenReques
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(request.Password)); err != nil {
 		return nil, fmt.Errorf("password is wrong")
 	}
+
 	type MyCustomClaims struct {
 		UserId   string `json:"user_id"`
 		UserRole string `json:"user_role"`

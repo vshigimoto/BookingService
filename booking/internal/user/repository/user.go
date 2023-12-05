@@ -6,20 +6,32 @@ import (
 	"database/sql"
 	"fmt"
 	"golang.org/x/crypto/bcrypt"
+	"log"
 )
 
-func (r *Repo) isExist(login, email string) bool {
-	rows, err := r.replica.Query("SELECT * FROM users WHERE login=$1 OR email=$2", login, email)
-	if err != nil {
+func isEqual[T comparable](user T, dbUser T) bool {
+	if user == dbUser {
 		return true
 	}
-	ok := rows.Next()
+	return false
+}
+
+func (r *Repo) isExist(login string) bool {
+	user, err := r.GetByLogin(context.Background(), login)
+	if err != nil {
+		if err.Error() == "cannot scan query with error: sql: Rows are closed" {
+			return false
+		}
+		log.Printf("error with get user by login: %v", err)
+		return true
+	}
+	ok := isEqual(user.Login, login)
 	return ok
 }
 
 func (r *Repo) CreateUser(ctx context.Context, user *entity.User) (id int, err error) {
-	if exist := r.isExist(user.Login, user.Email); exist {
-		return 0, fmt.Errorf("user with login or email %s, %s is exist", user.Login, user.Email)
+	if exist := r.isExist(user.Login); exist {
+		return 0, fmt.Errorf("user with login %s is exist", user.Login)
 	}
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {

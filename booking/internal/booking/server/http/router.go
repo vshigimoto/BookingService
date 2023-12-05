@@ -1,13 +1,13 @@
 package http
 
 import (
-	"booking/internal/booking/config"
-	"booking/internal/booking/server/http/middleware"
-	"booking/internal/booking/usecase"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/vshigimoto/BookingService/internal/booking/config"
+	"github.com/vshigimoto/BookingService/internal/booking/server/http/middleware"
+	"github.com/vshigimoto/BookingService/internal/booking/usecase"
 	"go.uber.org/zap"
 )
 

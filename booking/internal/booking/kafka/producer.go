@@ -1,9 +1,9 @@
 package kafka
 
 import (
-	"booking/internal/booking/config"
 	"fmt"
 	"github.com/IBM/sarama"
+	"github.com/vshigimoto/BookingService/internal/booking/config"
 )
 
 type Producer struct {

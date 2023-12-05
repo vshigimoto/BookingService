@@ -1,14 +1,14 @@
 package applicator
 
 import (
-	"booking/internal/auth/auth"
-	"booking/internal/auth/config"
-	"booking/internal/auth/database"
-	"booking/internal/auth/repository"
-	"booking/internal/auth/server/http"
-	"booking/internal/auth/transport"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/vshigimoto/BookingService/internal/auth/auth"
+	"github.com/vshigimoto/BookingService/internal/auth/config"
+	"github.com/vshigimoto/BookingService/internal/auth/database"
+	"github.com/vshigimoto/BookingService/internal/auth/repository"
+	"github.com/vshigimoto/BookingService/internal/auth/server/http"
+	"github.com/vshigimoto/BookingService/internal/auth/transport"
 	"go.uber.org/zap"
 )
 

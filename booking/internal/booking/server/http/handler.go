@@ -1,7 +1,7 @@
 package http
 
 import (
-	"booking/internal/booking/booking"
+	"github.com/vshigimoto/BookingService/internal/booking/booking"
 )
 
 type EndpointHandler struct {

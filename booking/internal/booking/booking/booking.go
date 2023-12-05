@@ -1,8 +1,8 @@
 package booking
 
 import (
-	"booking/internal/booking/config"
-	"booking/internal/booking/repository"
+	"github.com/vshigimoto/BookingService/internal/booking/config"
+	"github.com/vshigimoto/BookingService/internal/booking/repository"
 )
 
 type Service struct {

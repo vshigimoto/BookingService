@@ -1,15 +1,15 @@
 package applicator
 
 import (
-	"booking/internal/booking/config"
-	"booking/internal/booking/database"
-	"booking/internal/booking/kafka"
-	"booking/internal/booking/repository"
-	"booking/internal/booking/server/consumer"
-	"booking/internal/booking/server/http"
-	"booking/internal/booking/usecase"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/vshigimoto/BookingService/internal/booking/config"
+	"github.com/vshigimoto/BookingService/internal/booking/database"
+	"github.com/vshigimoto/BookingService/internal/booking/kafka"
+	"github.com/vshigimoto/BookingService/internal/booking/repository"
+	"github.com/vshigimoto/BookingService/internal/booking/server/consumer"
+	"github.com/vshigimoto/BookingService/internal/booking/server/http"
+	"github.com/vshigimoto/BookingService/internal/booking/usecase"
 	"go.uber.org/zap"
 	"sync"
 )

@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"booking/internal/booking/entity"
 	"database/sql"
 	"fmt"
+	"github.com/vshigimoto/BookingService/internal/booking/entity"
 )
 
 func (r *Repo) BookRoom(id string, code int) (int, error) {

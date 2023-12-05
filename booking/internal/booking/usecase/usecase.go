@@ -1,16 +1,16 @@
 package usecase
 
 import (
-	"booking/internal/booking/entity"
-	"booking/internal/booking/kafka"
-	"booking/internal/booking/repository"
-	"booking/internal/booking/server/consumer/dto"
-	"booking/pkg/metrics"
 	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/vshigimoto/BookingService/internal/booking/entity"
+	"github.com/vshigimoto/BookingService/internal/booking/kafka"
+	"github.com/vshigimoto/BookingService/internal/booking/repository"
+	"github.com/vshigimoto/BookingService/internal/booking/server/consumer/dto"
+	"github.com/vshigimoto/BookingService/pkg/metrics"
 	"go.uber.org/zap"
 	"math/rand"
 	"net/http"

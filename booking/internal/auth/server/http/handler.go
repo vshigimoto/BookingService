@@ -1,9 +1,9 @@
 package http
 
 import (
-	"booking/internal/auth/auth"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
+	"github.com/vshigimoto/BookingService/internal/auth/auth"
 	"log"
 	"net/http"
 	"time"

@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"booking/internal/auth/entity"
 	"database/sql"
+	"github.com/vshigimoto/BookingService/internal/auth/entity"
 )
 
 type UserTokenRepository interface {

@@ -1,0 +1,42 @@
+definitions:
+  entity.SwagResponce:
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+    type: object
+host: localhost:9234
+info:
+  contact: {}
+  description: API server for Booking service
+  title: Booking service
+  version: "1.0"
+paths:
+  /v1/booking/book/{id}:
+    post:
+      consumes:
+      - application/json
+      description: book room in hotel
+      parameters:
+      - description: hotel id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.SwagResponce'
+      summary: BookRoom
+      tags:
+      - bookRoom
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

@@ -7,6 +7,15 @@ import (
 	"go.uber.org/zap"
 )
 
+// @title Booking service
+// @version 1.0
+// @description API server for Booking service
+
+// @host localhost:9234
+
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	logger, _ := zap.NewProduction()
 	defer func(logger *zap.Logger) {

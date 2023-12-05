@@ -31,6 +31,15 @@ func NewBookingUC(l *zap.SugaredLogger, r *repository.Repo, k *kafka.Producer) *
 	}
 }
 
+// @Summary BookRoom
+// @Tags bookRoom
+// @Description book room in hotel
+// @ID
+// @Accept json
+// @Produce json
+// @Param id path int true "hotel id"
+// @Success 200 {object} entity.SwagResponce
+// @Router /v1/booking/book/{id} [post]
 func (b *BookingUC) BookRoom() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 
@@ -67,7 +76,7 @@ func (b *BookingUC) BookRoom() gin.HandlerFunc {
 		}
 		b.k.ProduceMessage(bm)
 		metrics.HttpBookTotal.Inc()
-		ctx.JSON(http.StatusOK, gin.H{"message": "room is booked, verify your book", "requestID": reqInt})
+		ctx.JSON(http.StatusOK, entity.SwagResponce{Message: "Room is booked, your req id is", Id: reqInt})
 	}
 }
 

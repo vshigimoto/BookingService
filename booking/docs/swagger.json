@@ -1,0 +1,64 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API server for Booking service",
+        "title": "Booking service",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:9234",
+    "paths": {
+        "/v1/booking/book/{id}": {
+            "post": {
+                "description": "book room in hotel",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "bookRoom"
+                ],
+                "summary": "BookRoom",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "hotel id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagResponce"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "entity.SwagResponce": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

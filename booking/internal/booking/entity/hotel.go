@@ -20,3 +20,8 @@ type BookRequest struct {
 	HotelId int `json:"hotel_id"`
 	Code    int `json:"Code"`
 }
+
+type SwagResponce struct {
+	Message string
+	Id      int
+}

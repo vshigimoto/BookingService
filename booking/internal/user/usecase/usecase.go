@@ -32,7 +32,7 @@ func (u *UserUC) CreateUser() gin.HandlerFunc {
 		id, err := u.r.CreateUser(context.TODO(), &user)
 		if err != nil {
 			u.l.Warnf("cannot create user with err:%v", err)
-			ctx.JSON(http.StatusBadRequest, gin.H{"message": "cannot create user"})
+			ctx.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 			return
 		}
 

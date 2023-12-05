@@ -6,6 +6,8 @@ import (
 	"booking/internal/booking/usecase"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 )
 
@@ -21,6 +23,7 @@ func InitRouter(r *gin.Engine, u usecase.BookingUC, l *zap.SugaredLogger, cfg co
 		l:   l,
 		cfg: cfg,
 	}
+	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 	v1 := r.Group("api/booking/v1")
 	{

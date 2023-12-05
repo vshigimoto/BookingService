@@ -1,16 +1,26 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "API server for Booking service",
+        "description": "Booking service",
         "title": "Booking service",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
         "version": "1.0"
     },
     "host": "localhost:9234",
     "paths": {
-        "/v1/booking/book/{id}": {
-            "post": {
-                "description": "book room in hotel",
+        "/api/booking/v1/booking/book/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Book room",
                 "consumes": [
                     "application/json"
                 ],
@@ -18,9 +28,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "bookRoom"
+                    "booking"
                 ],
-                "summary": "BookRoom",
+                "summary": "Book room",
                 "parameters": [
                     {
                         "type": "integer",
@@ -36,12 +46,82 @@
                         "schema": {
                             "$ref": "#/definitions/entity.SwagResponce"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagResponce"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/booking/v1/booking/hotel/confirm": {
+            "post": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Book room",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "booking"
+                ],
+                "summary": "Book room",
+                "parameters": [
+                    {
+                        "description": "id and code",
+                        "name": "swagInput",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagConfirmInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagConfResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagConfResponse"
+                        }
                     }
                 }
             }
         }
     },
     "definitions": {
+        "entity.SwagConfResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "entity.SwagConfirmInput": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
         "entity.SwagResponce": {
             "type": "object",
             "properties": {
@@ -55,7 +135,7 @@
         }
     },
     "securityDefinitions": {
-        "ApiKeyAuth": {
+        "BearerAuth": {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"

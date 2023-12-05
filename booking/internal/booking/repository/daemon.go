@@ -34,7 +34,7 @@ func (r *Repo) Worker(wg *sync.WaitGroup, num int) {
 func (r *Repo) Hotels(mu *sync.RWMutex) {
 	ticker := time.NewTicker(time.Minute)
 	mu.Lock()
-	hotels, err := r.GetHotels(context.TODO())
+	hotels, err := r.GetHotels(context.TODO(), "", "")
 	if err != nil {
 		log.Printf("err with get hotels: %v", err)
 		return

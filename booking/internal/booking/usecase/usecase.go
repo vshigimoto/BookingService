@@ -31,15 +31,17 @@ func NewBookingUC(l *zap.SugaredLogger, r *repository.Repo, k *kafka.Producer) *
 	}
 }
 
-// @Summary BookRoom
-// @Tags bookRoom
-// @Description book room in hotel
-// @ID
+// BookRoom godoc
+// @Summary Book room
+// @Description Book room
+// @Tags booking
 // @Accept json
 // @Produce json
+// @Security BearerAuth
 // @Param id path int true "hotel id"
 // @Success 200 {object} entity.SwagResponce
-// @Router /v1/booking/book/{id} [post]
+// @Failure 400 {object} entity.SwagResponce
+// @Router /api/booking/v1/booking/book/{id} [get]
 func (b *BookingUC) BookRoom() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 
@@ -80,6 +82,17 @@ func (b *BookingUC) BookRoom() gin.HandlerFunc {
 	}
 }
 
+// ConfirmBook godoc
+// @Summary Book room
+// @Description Book room
+// @Tags booking
+// @Accept json
+// @Produce json
+// @Security BearerAuth
+// @Param swagInput body entity.SwagConfirmInput true "id and code"
+// @Success 200 {object} entity.SwagConfResponse
+// @Failure 400 {object} entity.SwagConfResponse
+// @Router /api/booking/v1/booking/hotel/confirm [post]
 func (b *BookingUC) ConfirmBook() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		var bookReq entity.BookRequest
@@ -111,13 +124,15 @@ func (b *BookingUC) CreateHotel() gin.HandlerFunc {
 			ctx.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 			return
 		}
-		ctx.JSON(http.StatusOK, id)
+		ctx.JSON(http.StatusOK, gin.H{"message": fmt.Sprintf("User with id %d was created", id)})
 	}
 }
 
 func (b *BookingUC) GetHotels() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		hotels, err := b.r.GetHotels(context.Background())
+		sortBy := ctx.Query("sortBy")
+		sortKey := ctx.Query("sortKey")
+		hotels, err := b.r.GetHotels(context.Background(), sortBy, sortKey)
 		if err != nil {
 			b.l.Infof("cannot get hotels with err:%v", err)
 			ctx.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
@@ -148,7 +163,7 @@ func (b *BookingUC) UpdateHotel() gin.HandlerFunc {
 			ctx.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 			return
 		}
-		ctx.JSON(http.StatusOK, id)
+		ctx.JSON(http.StatusOK, gin.H{"message": fmt.Sprintf("User with id %d was updated", id)})
 	}
 }
 
@@ -172,7 +187,7 @@ func (b *BookingUC) DeleteHotel() gin.HandlerFunc {
 			ctx.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 			return
 		}
-		ctx.JSON(http.StatusOK, gin.H{"message": id})
+		ctx.JSON(http.StatusOK, gin.H{"message": fmt.Sprintf("User with id %d was deleted", id)})
 	}
 }
 

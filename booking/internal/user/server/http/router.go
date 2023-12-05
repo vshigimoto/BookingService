@@ -25,7 +25,7 @@ func UserRouter(r *gin.Engine, u usecase.UserUC, l *zap.SugaredLogger, cfg confi
 	v1 := r.Group("api/user/v1")
 	{
 		v1.GET("/user/:login", ur.u.GetByLogin())
-		v1.POST("/user", middleware.JWTVerify(), ur.u.CreateUser())
+		v1.POST("/user", ur.u.CreateUser())
 	}
 
 }

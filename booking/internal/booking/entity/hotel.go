@@ -25,3 +25,12 @@ type SwagResponce struct {
 	Message string
 	Id      int
 }
+
+type SwagConfirmInput struct {
+	Id   int `json:"id"`
+	Code int `json:"code"`
+}
+
+type SwagConfResponse struct {
+	Message string
+}

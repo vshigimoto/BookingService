@@ -9,15 +9,25 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/v1/booking/book/{id}": {
-            "post": {
-                "description": "book room in hotel",
+        "/api/booking/v1/booking/book/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Book room",
                 "consumes": [
                     "application/json"
                 ],
@@ -25,9 +35,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "bookRoom"
+                    "booking"
                 ],
-                "summary": "BookRoom",
+                "summary": "Book room",
                 "parameters": [
                     {
                         "type": "integer",
@@ -43,12 +53,82 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/entity.SwagResponce"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagResponce"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/booking/v1/booking/hotel/confirm": {
+            "post": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Book room",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "booking"
+                ],
+                "summary": "Book room",
+                "parameters": [
+                    {
+                        "description": "id and code",
+                        "name": "swagInput",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagConfirmInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagConfResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/entity.SwagConfResponse"
+                        }
                     }
                 }
             }
         }
     },
     "definitions": {
+        "entity.SwagConfResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "entity.SwagConfirmInput": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
         "entity.SwagResponce": {
             "type": "object",
             "properties": {
@@ -62,7 +142,7 @@ const docTemplate = `{
         }
     },
     "securityDefinitions": {
-        "ApiKeyAuth": {
+        "BearerAuth": {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"
@@ -77,7 +157,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "Booking service",
-	Description:      "API server for Booking service",
+	Description:      "Booking service",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

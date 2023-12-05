@@ -5,6 +5,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	_ "github.com/vshigimoto/BookingService/docs"
 	"github.com/vshigimoto/BookingService/internal/booking/config"
 	"github.com/vshigimoto/BookingService/internal/booking/server/http/middleware"
 	"github.com/vshigimoto/BookingService/internal/booking/usecase"

@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"booking/internal/auth/entity"
 	"fmt"
+	"github.com/vshigimoto/BookingService/internal/auth/entity"
 )
 
 func (r *Repo) CreateUserToken(userToken entity.UserToken) error {

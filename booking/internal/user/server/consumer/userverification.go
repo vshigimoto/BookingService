@@ -1,9 +1,9 @@
 package consumer
 
 import (
-	"booking/internal/user/server/consumer/dto"
 	"encoding/json"
 	"github.com/IBM/sarama"
+	"github.com/vshigimoto/BookingService/internal/user/server/consumer/dto"
 	"go.uber.org/zap"
 )
 

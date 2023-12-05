@@ -1,10 +1,10 @@
 package usecase
 
 import (
-	"booking/internal/user/entity"
-	"booking/internal/user/repository"
 	"context"
 	"github.com/gin-gonic/gin"
+	"github.com/vshigimoto/BookingService/internal/user/entity"
+	"github.com/vshigimoto/BookingService/internal/user/repository"
 	"go.uber.org/zap"
 	"net/http"
 )

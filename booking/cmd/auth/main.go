@@ -1,9 +1,9 @@
 package main
 
 import (
-	"booking/internal/auth/applicator"
-	"booking/internal/auth/config"
 	_ "github.com/lib/pq" //
+	"github.com/vshigimoto/BookingService/internal/auth/applicator"
+	"github.com/vshigimoto/BookingService/internal/auth/config"
 	"go.uber.org/zap"
 )
 

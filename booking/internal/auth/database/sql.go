@@ -1,9 +1,9 @@
 package database
 
 import (
-	"booking/internal/auth/config"
 	"database/sql"
 	"fmt"
+	"github.com/vshigimoto/BookingService/internal/auth/config"
 )
 
 func (c Config) dsn() string {

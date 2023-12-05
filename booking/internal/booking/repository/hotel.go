@@ -1,10 +1,10 @@
 package repository
 
 import (
-	"booking/internal/booking/entity"
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/vshigimoto/BookingService/internal/booking/entity"
 )
 
 func (r *Repo) CreateHotel(ctx context.Context, hotel *entity.Hotel) (id int, err error) {

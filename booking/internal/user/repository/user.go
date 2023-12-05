@@ -1,10 +1,10 @@
 package repository
 
 import (
-	"booking/internal/user/entity"
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/vshigimoto/BookingService/internal/user/entity"
 	"golang.org/x/crypto/bcrypt"
 	"log"
 )

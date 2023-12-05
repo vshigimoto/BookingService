@@ -1,10 +1,10 @@
 package transport
 
 import (
-	"booking/internal/auth/config"
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/vshigimoto/BookingService/internal/auth/config"
 	"io"
 	"net/http"
 	"time"

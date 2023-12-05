@@ -1,13 +1,13 @@
 package auth
 
 import (
-	"booking/internal/auth/config"
-	"booking/internal/auth/entity"
-	"booking/internal/auth/repository"
-	"booking/internal/auth/transport"
 	"context"
 	"fmt"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/vshigimoto/BookingService/internal/auth/config"
+	"github.com/vshigimoto/BookingService/internal/auth/entity"
+	"github.com/vshigimoto/BookingService/internal/auth/repository"
+	"github.com/vshigimoto/BookingService/internal/auth/transport"
 	"golang.org/x/crypto/bcrypt"
 	"strconv"
 	"time"

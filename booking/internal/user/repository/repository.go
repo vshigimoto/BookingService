@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"booking/internal/user/entity"
 	"context"
 	"database/sql"
+	"github.com/vshigimoto/BookingService/internal/user/entity"
 )
 
 type UserRepository interface {

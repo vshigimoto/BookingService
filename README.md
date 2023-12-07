@@ -1,6 +1,7 @@
 ### Golang Booking microservices app, with Prometheus, Grafana monitoring, Kafka and Swagger
 
 #### List of what i used in project:
+* [gin](https://github.com/gin-gonic/gin) - Gin Web Framework
 * [sql](https://pkg.go.dev/database/sql) - Extensions to database/sql.
 * [pgx](https://github.com/jackc/pgx) - PostgreSQL driver and toolkit for Go
 * [viper](https://github.com/spf13/viper) - Go configuration with fangs

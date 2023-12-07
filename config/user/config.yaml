@@ -1,0 +1,19 @@
+HttpServer:
+  Port: 9236
+  AdminPort: 9237
+
+Database:
+  Main:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    Port: 5432
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'user'
+  Replica:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    Port: 5432
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'user'

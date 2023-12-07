@@ -1,0 +1,27 @@
+HttpServer:
+  Port: 9233
+
+Database:
+  Main:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    Port: 5434
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'auth'
+  Replica:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    Port: 5434
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'auth'
+
+Auth:
+  JwtSecretKey: "AllYourBase"
+  PasswordSecretKey: "dsadjflshfjghfdjkggfdj21321"
+
+Transport:
+  User:
+    Host: http://127.0.0.1:9236/
+    Timeout: 100s

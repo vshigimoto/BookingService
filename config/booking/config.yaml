@@ -1,0 +1,28 @@
+HttpServer:
+  Port: 9234
+  AdminPort: 9235
+
+Database:
+  Main:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    Port: '5433'
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'hotel'
+  Replica:
+    Host: '127.0.0.1'
+    SslMode: 'disable'
+    Port: '5433'
+    User: 'postgres'
+    Password: 'postgres'
+    DbName: 'hotel'
+
+Kafka:
+  Brokers:
+    - 127.0.0.1:19092
+  Producer:
+    topic: "booking-verification"
+  Consumer:
+    topics:
+      - "booking-verification"

@@ -23,7 +23,7 @@ type BookingUC struct {
 	k *kafka.Producer
 }
 
-func NewBookingUC(l *zap.SugaredLogger, r *repository.Repo, k *kafka.Producer) *BookingUC {
+func New(l *zap.SugaredLogger, r *repository.Repo, k *kafka.Producer) *BookingUC {
 	return &BookingUC{
 		l: l,
 		r: r,

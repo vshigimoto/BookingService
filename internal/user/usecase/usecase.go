@@ -14,7 +14,7 @@ type UserUC struct {
 	r *repository.Repo
 }
 
-func NewUserUC(l *zap.SugaredLogger, r *repository.Repo) *UserUC {
+func New(l *zap.SugaredLogger, r *repository.Repo) *UserUC {
 	return &UserUC{
 		l: l,
 		r: r,

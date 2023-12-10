@@ -32,6 +32,6 @@ func main() {
 	if err != nil {
 		l.Fatalf("Failed to load config: %v", err)
 	}
-	app := applicator.NewApplicator(cfg, l)
+	app := applicator.New(cfg, l)
 	app.Run()
 }

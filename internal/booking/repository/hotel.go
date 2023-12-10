@@ -17,8 +17,7 @@ func (r *Repo) CreateHotel(ctx context.Context, hotel *entity.Hotel) (id int, er
 
 func (r *Repo) GetHotels(ctx context.Context, sortBy, sortKey string) ([]entity.Hotel, error) {
 	hotels := make([]entity.Hotel, 0)
-	query := SqlBuilder(sortKey, sortBy)
-	rows, err := r.replica.Query(query)
+	rows, err := r.replica.Query("SELECT * FROM hotel")
 	if err != nil {
 		return nil, fmt.Errorf("cannot query with error: %v", err)
 	}

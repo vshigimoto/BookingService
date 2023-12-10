@@ -10,10 +10,7 @@ import (
 )
 
 func isEqual[T comparable](user T, dbUser T) bool {
-	if user == dbUser {
-		return true
-	}
-	return false
+	return user == dbUser
 }
 
 func (r *Repo) isExist(login string) bool {
@@ -37,7 +34,6 @@ func (r *Repo) CreateUser(ctx context.Context, user *entity.User) (id int, err e
 	if err != nil {
 		return 0, fmt.Errorf("cannot hash password with error: %v", err)
 	}
-	//user.Name and user.Email is arguments for prepared statement ($1 and $2)
 	err = r.main.QueryRow("insert into users(name, email,login, password) values($1, $2, $3, $4) returning ID", user.Name, user.Email, user.Login, string(hashedPassword)).Scan(&user.Id) // $1 and $2 is prepared statement
 	if err != nil {
 		return 0, fmt.Errorf("cannot query with error: %v", err)

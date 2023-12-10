@@ -10,5 +10,6 @@ func InitRouter(r *gin.Engine, eh *EndpointHandler) {
 	v1 := r.Group("api/auth/v1")
 	{
 		v1.POST("/user/login", eh.Login())
+		v1.POST("/user/renew", eh.RenewToken())
 	}
 }

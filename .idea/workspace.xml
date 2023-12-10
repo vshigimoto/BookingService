@@ -5,29 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c6cc15-d350-43e3-b369-cc4d09bac791" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/BookingService.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000004.snapshot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/00000000000000000036.snapshot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000005.snapshot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000006.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000006.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000006.snapshot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000006.timeindex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000007.snapshot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/00000000000000000037.snapshot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/auth/redis/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/014e25ab-601e-493c-8760-a5cb5cc29a91.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/014e25ab-601e-493c-8760-a5cb5cc29a91.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1eb96e40-a292-4381-874c-e490e083681e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1eb96e40-a292-4381-874c-e490e083681e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463cad-7077-4857-8380-9f43d0f88c49.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463cad-7077-4857-8380-9f43d0f88c49/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463cad-7077-4857-8380-9f43d0f88c49/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463cad-7077-4857-8380-9f43d0f88c49/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463cad-7077-4857-8380-9f43d0f88c49/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5281afe1-dcbc-40a7-982d-4897c303e31b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5281afe1-dcbc-40a7-982d-4897c303e31b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88572f84-7a3d-45f2-a7d3-fa5ce8f32387.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88572f84-7a3d-45f2-a7d3-fa5ce8f32387/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88572f84-7a3d-45f2-a7d3-fa5ce8f32387/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88572f84-7a3d-45f2-a7d3-fa5ce8f32387/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88572f84-7a3d-45f2-a7d3-fa5ce8f32387/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/auth/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/auth/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/booking/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/booking/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/user/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/user/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000000.index" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000000.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000000.log" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000000.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000000.timeindex" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000000.timeindex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000003.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/leader-epoch-checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/leader-epoch-checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/__confluent.support.metrics-0/00000000000000000004.snapshot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/00000000000000000000.timeindex" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/00000000000000000000.timeindex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/00000000000000000026.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/leader-epoch-checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/leader-epoch-checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/log-start-offset-checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/log-start-offset-checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/booking-verification-0/00000000000000000036.snapshot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/recovery-point-offset-checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/recovery-point-offset-checkpoint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/replication-offset-checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/replication-offset-checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/data/kafka1/data/user-verification-0/leader-epoch-checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/kafka1/data/user-verification-0/leader-epoch-checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migration/001_init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/user/20231207072610_add_user_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migration/002_init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/booking/20231207074148_add_booking_tabel.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migration/003_init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/auth/20231207074229_add_auth_tabel.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/applicator/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/applicator/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/auth/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/auth/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/repository/user_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/repository/user_token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/server/http/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/server/http/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/server/http/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/server/http/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/auth/transport/user_http.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/auth/transport/user_http.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/applicator/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/booking/applicator/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/kafka/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/booking/kafka/producer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/repository/hotel.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/booking/repository/hotel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/booking/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/repository/sqlbuilder.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/server/consumer/bookingverification.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/booking/server/consumer/bookingverification.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/booking/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/booking/usecase/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/user/applicator/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/user/applicator/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/user/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/user/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/user/repository/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/user/repository/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/user/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/user/usecase/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/auth/20231207074229_add_auth_tabel.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/auth/20231207074229_add_auth_tabel.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/user/20231207072610_add_user_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/user/20231207072610_add_user_table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,34 +99,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/Amirkhan/Documents/GitHub/BookingService",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.make"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amirkhan/Documents/GitHub/BookingService&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.make&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "PostgreSQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Amirkhan\Documents\GitHub\BookingService\migration\auth" />
@@ -105,32 +136,32 @@
       <recent name="C:\Users\Amirkhan\Documents\GitHub\BookingTest\booking\internal\user" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.migrate_up">
-    <configuration name="go build github.com/vshigimoto/BookingService/cmd/auth" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="BookingTest" />
-      <working_directory value="$PROJECT_DIR$/booking" />
+  <component name="RunManager" selected="Go Build.go build github.com/vshigimoto/BookingService/cmd/auth (1)">
+    <configuration name="go build github.com/vshigimoto/BookingService/cmd/auth (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="BookingService" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="github.com/vshigimoto/BookingService/cmd/auth" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/booking/cmd/auth/main.go" />
+      <filePath value="$PROJECT_DIR$/cmd/auth/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/vshigimoto/BookingService/cmd/booking" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="BookingTest" />
-      <working_directory value="$PROJECT_DIR$/booking" />
+    <configuration name="go build github.com/vshigimoto/BookingService/cmd/booking (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="BookingService" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="github.com/vshigimoto/BookingService/cmd/booking" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/booking/cmd/booking/main.go" />
+      <filePath value="$PROJECT_DIR$/cmd/booking/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/vshigimoto/BookingService/cmd/user" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="BookingTest" />
-      <working_directory value="$PROJECT_DIR$/booking" />
+    <configuration name="go build github.com/vshigimoto/BookingService/cmd/user (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="BookingService" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="github.com/vshigimoto/BookingService/cmd/user" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/booking/cmd/user/main.go" />
+      <filePath value="$PROJECT_DIR$/cmd/user/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="migrate_up" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
@@ -153,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/vshigimoto/BookingService/cmd/auth (1)" />
+        <item itemvalue="Go Build.go build github.com/vshigimoto/BookingService/cmd/user (1)" />
+        <item itemvalue="Go Build.go build github.com/vshigimoto/BookingService/cmd/booking (1)" />
         <item itemvalue="Makefile Target.migrate_up" />
         <item itemvalue="Makefile Target.run" />
-        <item itemvalue="Go Build.go build github.com/vshigimoto/BookingService/cmd/booking" />
-        <item itemvalue="Go Build.go build github.com/vshigimoto/BookingService/cmd/user" />
-        <item itemvalue="Go Build.go build github.com/vshigimoto/BookingService/cmd/auth" />
       </list>
     </recent_temporary>
   </component>
@@ -199,6 +230,16 @@
           <url>file://$PROJECT_DIR$/booking/cmd/booking/main.go</url>
           <line>2</line>
           <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/auth/server/http/handler.go</url>
+          <line>34</line>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/auth/server/http/handler.go</url>
+          <line>88</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

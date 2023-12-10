@@ -6,7 +6,7 @@ runUser:
 	go run ./cmd/user/main.go
 
 runAuth:
-	echo "Starting Auth Service"
+	echo "Starting auth Service"
 	go run ./cmd/auth/main.go
 
 runBooking:
@@ -27,14 +27,14 @@ swag-v1-booking:
 # Go migrate postgresql
 
 migrate_up:
-	goose -dir migration/user postgres "user=postgres password=postgres port=5432 dbname=user sslmode=disable" up 20231207072610_add_user_table.sql
-	goose -dir migration/booking postgres "user=postgres password=postgres port=5433 dbname=hotel sslmode=disable" up 20231207074148_add_booking_tabel.sql
-	goose -dir migration/auth postgres "user=postgres password=postgres port=5434 dbname=auth sslmode=disable" up 20231207074229_add_auth_tabel.sql
+	goose -dir migration/user postgres "host=localhost user=postgres password=postgres port=5432 dbname=user sslmode=disable" up 20231207072610_add_user_table.sql
+	goose -dir migration/booking postgres "host=localhost user=postgres password=postgres port=5433 dbname=hotel sslmode=disable" up 20231207074148_add_booking_tabel.sql
+	goose -dir migration/auth postgres "host=localhost user=postgres password=postgres port=5434 dbname=auth sslmode=disable" up 20231207074229_add_auth_tabel.sql
 
 migrate_down:
-	goose -dir migration/user postgres "user=postgres password=postgres port=5432 dbname=user sslmode=disable" down 20231207072610_add_user_table.sql
-	goose -dir migration/booking postgres "user=postgres password=postgres port=5433 dbname=hotel sslmode=disable" down 20231207074148_add_booking_tabel.sql
-	goose -dir migration/auth postgres "user=postgres password=postgres port=5434 dbname=auth sslmode=disable" down 20231207074229_add_auth_tabel.sql
+	goose -dir migration/user postgres "host=localhost user=postgres password=postgres port=5432 dbname=user sslmode=disable" down 20231207072610_add_user_table.sql
+	goose -dir migration/booking postgres "host=localhost user=postgres password=postgres port=5433 dbname=hotel sslmode=disable" down 20231207074148_add_booking_tabel.sql
+	goose -dir migration/auth postgres "host=localhost user=postgres password=postgres port=5434 dbname=auth sslmode=disable" down 20231207074229_add_auth_tabel.sql
 
 
 # ==============================================================================

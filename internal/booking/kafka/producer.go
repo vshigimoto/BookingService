@@ -11,7 +11,7 @@ type Producer struct {
 	topic         string
 }
 
-func NewProducer(cfg config.Kafka) (*Producer, error) {
+func New(cfg config.Kafka) (*Producer, error) {
 	samaraConfig := sarama.NewConfig()
 
 	asyncProducer, err := sarama.NewAsyncProducer(cfg.Brokers, samaraConfig)

@@ -2,12 +2,9 @@ package repository
 
 import (
 	"database/sql"
-	"github.com/vshigimoto/BookingService/internal/auth/entity"
 )
 
 type UserTokenRepository interface {
-	CreateUserToken(userToken entity.UserToken) error
-	UpdateUserToken(userToken entity.UserToken) error
 	GetUserRole(userId int) (string, error)
 }
 
@@ -20,7 +17,7 @@ type Repo struct {
 	replica *sql.DB
 }
 
-func NewRepository(main *sql.DB, replica *sql.DB) *Repo {
+func New(main *sql.DB, replica *sql.DB) *Repo {
 	return &Repo{
 		main:    main,
 		replica: replica,

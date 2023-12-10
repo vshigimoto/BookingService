@@ -23,7 +23,7 @@ type Repo struct {
 	replica *sql.DB
 }
 
-func NewRepository(main *sql.DB, replica *sql.DB) *Repo {
+func New(main *sql.DB, replica *sql.DB) *Repo {
 	return &Repo{
 		main:    main,
 		replica: replica,

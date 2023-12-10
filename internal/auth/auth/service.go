@@ -20,7 +20,7 @@ type Service struct {
 	userTransport     *transport.UserTransport
 }
 
-func NewAuthService(repo repository.Repository, cfg config.Config, userTransport *transport.UserTransport) *Service {
+func New(repo repository.Repository, cfg config.Config, userTransport *transport.UserTransport) *Service {
 	return &Service{
 		repo:              repo,
 		jwtSecretKey:      cfg.Auth.JwtSecretKey,
@@ -82,11 +82,6 @@ func (s *Service) GenerateToken(ctx context.Context, request GenerateTokenReques
 		Token:        tokenString,
 		RefreshToken: refreshTokenString,
 		UserId:       strconv.Itoa(user.Id),
-	}
-
-	err = s.repo.UpdateUserToken(userToken)
-	if err != nil {
-		return nil, fmt.Errorf("CreateUserToken err: %w", err)
 	}
 
 	jwtToken := &JwtUserToken{

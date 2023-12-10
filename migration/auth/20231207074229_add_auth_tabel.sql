@@ -1,12 +1,5 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE TABLE IF NOT EXISTS "user_token"
-(
-    "user_id"                serial PRIMARY KEY,
-    "token"                  VARCHAR(500)        NOT NULL,
-    "refresh_token"          VARCHAR(500)        NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS "user_role"
 (
     "id"                       serial              PRIMARY KEY,
@@ -38,6 +31,5 @@ insert into user_role (id, user_id, role) values (20, 20, 'admin');
 
 -- +goose Down
 -- +goose StatementBegin
-DROP TABLE IF EXISTS user_token;
 DROP TABLE IF EXISTS user_role;
 -- +goose StatementEnd

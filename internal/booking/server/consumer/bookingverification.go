@@ -11,7 +11,7 @@ type BookingVerificationCallback struct {
 	logger *zap.SugaredLogger
 }
 
-func NewBookingVerificationCallback(logger *zap.SugaredLogger) *BookingVerificationCallback {
+func New(logger *zap.SugaredLogger) *BookingVerificationCallback {
 	return &BookingVerificationCallback{logger: logger}
 }
 

@@ -14,7 +14,7 @@ type UserTransport struct {
 	config config.UserTransport
 }
 
-func NewTransport(cfg config.UserTransport) *UserTransport {
+func New(cfg config.UserTransport) *UserTransport {
 	return &UserTransport{
 		config: cfg,
 	}
